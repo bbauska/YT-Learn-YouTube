@@ -158,29 +158,33 @@ function onYouTubeIframeAPIReady() {
 </pre>
 
 The constructor for the video player specifies the following parameters:
+<ul>
+  <li>The first parameter specifies either the DOM element or the id of the HTML element where 
+the API will insert the &lt;iframe&gt; tag containing the player.</li>
+</ul>
 
-	* The first parameter specifies either the DOM element or the id of the HTML element where 
-the API will insert the &lt;iframe&gt; tag containing the player.
-
-The IFrame API will replace the specified element with the &lt;iframe&gt; element containing 
+<p>The IFrame API will replace the specified element with the &lt;iframe&gt; element containing 
 the player. This could affect the layout of your page if the element being replaced has 
 a different display style than the inserted &lt;iframe&gt; element. By default, an &lt;iframe&gt; 
-displays as an inline-block element.
-
-	* The second parameter is an object that specifies player options. The object contains the 
+displays as an inline-block element.</p>
+<ul>
+  <li>The second parameter is an object that specifies player options. The object contains the 
 following properties:
-
-	- width (number) – The width of the video player. The default value is 640.
-	- height (number) – The height of the video player. The default value is 390.
-	- videoId (string) – The YouTube video ID that identifies the video that the player will load.
-	- playerVars (object) – The object's properties identify player parameters that can be used 
-	  to customize the player.
-	- events (object) – The object's properties identify the events that the API fires and the 
+    <ul>
+      <li><b>width (number)</b> – The width of the video player. The default value is 640.</li>
+	  <li><b>height (number)</b> – The height of the video player. The default value is 390.</li>
+      <li><b>videoId (string)</b> – The YouTube video ID that identifies the video that the player will load.</li>
+      <li><b>playerVars (object)</b> – The object's properties identify player parameters that can be used 
+	  to customize the player.</li>
+      <li><b>events (object)</b> – The object's properties identify the events that the API fires and the 
 	  functions (event listeners) that the API will call when those events occur. In the example, 
 	  the constructor indicates that the onPlayerReady function will execute when the onReady 
 	  event fires and that the onPlayerStateChange function will execute when the onStateChange 
-	  event fires.
-
+	  event fires.</li>
+	</ul>
+  </li>
+</ul>
+	
 As mentioned in the Getting started section, instead of writing an empty &lt;div&gt; element 
 on your page, which the player API's JavaScript code will then replace with an &lt;iframe&gt; 
 element, you could create the &lt;iframe&gt; tag yourself. The first example in the Examples 
