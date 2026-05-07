@@ -1,9 +1,13 @@
-YouTube Player API Reference for iframe Embeds 
-
-bookmark_border
-
-The IFrame player API lets you embed a YouTube video player on your website and control 
-the player using JavaScript.
+<!--~~~~~~~~~~~~~~~~~~~~~~~ readme.md for YT-Learn-YouTube ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~ readme.md for YT-Learn-YouTube ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h1>YT-Learn-YouTube</h1>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h2>YouTube Player API Reference for iframe Embeds</h2>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<p>The <mark>IFrame</mark> player API lets you embed a YouTube video player on your website and control 
+the player using JavaScript.</p>
 
 Using the API's JavaScript functions, you can queue videos for playback; play, pause, or 
 stop those videos; adjust the player volume; or retrieve information about the video 
@@ -33,10 +37,10 @@ downloading the JavaScript for the player API, which enables you to then use the
 on your page. Thus, this function might create the player objects that you want to 
 display when the page loads.
 
-Getting started
-The sample HTML page below creates an embedded player that will load a video, play it for 
-six seconds, and then stop the playback. The numbered comments in the HTML are explained 
-in the list below the example.
+<h4>Getting started</h4>
+<p>The sample HTML page below <b>creates</b> an embedded player that will <b>load a video</b>, <b>play</b> it for 
+<b>six seconds</b>, and then <b>stop</b> the playback. The numbered comments in the HTML are explained 
+in the list below the example.</p>
 
 <details>
   <summary>YouTube on the Web</summary>
@@ -99,18 +103,18 @@ in the list below the example.
 
 </details>
 
-The following list provides more details about the sample above:
+<p>The following list provides more details about the sample above:</p>
 
-The &lt;div&gt; tag in this section identifies the location on the page where the IFrame API 
+<p>The &lt;div&gt; tag in this section identifies the location on the page where the IFrame API 
 will place the video player. The constructor for the player object, which is described 
 in the Loading a video player section, identifies the &lt;div&gt; tag by its id to ensure 
 that the API places the &lt;iframe&gt; in the proper location. Specifically, the IFrame API 
-will replace the &lt;div&gt; tag with the &lt;iframe&gt; tag.
+will replace the &lt;div&gt; tag with the &lt;iframe&gt; tag.</p>
 
-As an alternative, you could also put the &lt;iframe&gt; element directly on the page. The 
-Loading a video player section explains how to do so.
+<p>As an alternative, you could also put the &lt;iframe&gt; element directly on the page. The 
+Loading a video player section explains how to do so.</p>
 
-The code in this section loads the IFrame Player API JavaScript code. The example uses 
+<p>The code in this section loads the IFrame Player API JavaScript code. The example uses 
 DOM modification to download the API code to ensure that the code is retrieved 
 asynchronously. (The &lt;script&gt; tag's async attribute, which also enables asynchronous 
 downloads, is not yet supported in all modern browsers as discussed in this Stack 
@@ -129,7 +133,7 @@ which may indicate that the player is playing, paused, finished, and so forth. T
 function indicates that when the player state is 1 (playing), the player should play for 
 six seconds and then call the stopVideo function to stop the video.
 
-## Loading a video player
+<h2>Loading a video player</h2>
 After the API's JavaScript code loads, the API will call the onYouTubeIframeAPIReady 
 function, at which point you can construct a YT.Player object to insert a video player 
 on your page. The HTML excerpt below shows the onYouTubeIframeAPIReady function from 
@@ -155,7 +159,7 @@ function onYouTubeIframeAPIReady() {
 
 The constructor for the video player specifies the following parameters:
 
-The first parameter specifies either the DOM element or the id of the HTML element where 
+	* The first parameter specifies either the DOM element or the id of the HTML element where 
 the API will insert the &lt;iframe&gt; tag containing the player.
 
 The IFrame API will replace the specified element with the &lt;iframe&gt; element containing 
@@ -163,19 +167,20 @@ the player. This could affect the layout of your page if the element being repla
 a different display style than the inserted &lt;iframe&gt; element. By default, an &lt;iframe&gt; 
 displays as an inline-block element.
 
-The second parameter is an object that specifies player options. The object contains the 
+	* The second parameter is an object that specifies player options. The object contains the 
 following properties:
-width (number) – The width of the video player. The default value is 640.
-height (number) – The height of the video player. The default value is 390.
-videoId (string) – The YouTube video ID that identifies the video that the player will 
-load.
-playerVars (object) – The object's properties identify player parameters that can be used 
-to customize the player.
-events (object) – The object's properties identify the events that the API fires and the 
-functions (event listeners) that the API will call when those events occur. In the example, 
-the constructor indicates that the onPlayerReady function will execute when the onReady 
-event fires and that the onPlayerStateChange function will execute when the onStateChange 
-event fires.
+
+	- width (number) – The width of the video player. The default value is 640.
+	- height (number) – The height of the video player. The default value is 390.
+	- videoId (string) – The YouTube video ID that identifies the video that the player will load.
+	- playerVars (object) – The object's properties identify player parameters that can be used 
+	  to customize the player.
+	- events (object) – The object's properties identify the events that the API fires and the 
+	  functions (event listeners) that the API will call when those events occur. In the example, 
+	  the constructor indicates that the onPlayerReady function will execute when the onReady 
+	  event fires and that the onPlayerStateChange function will execute when the onStateChange 
+	  event fires.
+
 As mentioned in the Getting started section, instead of writing an empty &lt;div&gt; element 
 on your page, which the player API's JavaScript code will then replace with an &lt;iframe&gt; 
 element, you could create the &lt;iframe&gt; tag yourself. The first example in the Examples 
@@ -186,6 +191,7 @@ section shows how to do this.
   src="http://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1&origin=http://example.com"
   frameborder="0"&gt;&lt;/iframe&gt;
 </pre>
+
 Note that if you do write the &lt;iframe&gt; tag, then when you construct the YT.Player object, 
 you do not need to specify values for the width and height, which are specified as 
 attributes of the &lt;iframe&gt; tag, or the videoId and player parameters, which are are 
@@ -197,13 +203,18 @@ hijacking control of your YouTube player.
 
 For other examples on constructing video player objects, see Examples.
 
-Operations
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+### Operations
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 To call the player API methods, you must first get a reference to the player object 
 you wish to control. You obtain the reference by creating a YT.Player object as 
 discussed in the Getting started and Loading a video player sections of this document.
 
-Functions
-Queueing functions
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+### Functions
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+#### Queueing functions
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Queueing functions allow you to load and play a video, a playlist, or another list 
 of videos. If you are using the object syntax described below to call these functions, 
 then you can also queue or load a list of a user's uploaded videos.
@@ -216,17 +227,19 @@ The object syntax lets you pass an object as a single parameter and to define ob
 properties for the function arguments that you wish to set. In addition, the API may 
 support additional functionality that the argument syntax does not support.
 
-For example, the loadVideoById function can be called in either of the following ways. 
+For example, the <em>loadVideoById</em> function can be called in either of the following ways. 
 Note that the object syntax supports the endSeconds property, which the argument syntax 
 does not support.
 
-Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+#### Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
-<pre>
-loadVideoById("bHQqvYy5KYo", 5, "large")
-</pre>
+<pre>loadVideoById("bHQqvYy5KYo", 5, "large")</pre>
 
-Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+#### Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 loadVideoById({'videoId': 'bHQqvYy5KYo',
@@ -234,20 +247,23 @@ loadVideoById({'videoId': 'bHQqvYy5KYo',
                'endSeconds': 60});
 </pre>
 
-Queueing functions for videos
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+### Queueing functions for videos
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<pre>cueVideoById</pre>
 
-<pre>
-cueVideoById
-</pre>
-
-Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+#### Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.cueVideoById(videoId:String,
                     startSeconds:Number):Void
 </pre>
 
-Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+#### Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.cueVideoById({videoId:String,
@@ -260,25 +276,31 @@ video. The player does not request the FLV until playVideo() or seekTo() is call
 
 The required videoId parameter specifies the YouTube Video ID of the video to be played. 
 In the YouTube Data API, a video resource's id property specifies the ID.
+
 The optional startSeconds parameter accepts a float/integer and specifies the time from 
 which the video should start playing when playVideo() is called. If you specify a 
 startSeconds value and then call seekTo(), then the player plays from the time specified 
 in the seekTo() call. When the video is cued and ready to play, the player will broadcast 
 a video cued event (5).
+
 The optional endSeconds parameter, which is only supported in object syntax, accepts a 
 float/integer and specifies the time when the video should stop playing when playVideo() 
 is called. If you specify an endSeconds value and then call seekTo(), the endSeconds 
 value will no longer be in effect.
 loadVideoById
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.loadVideoById(videoId:String,
                      startSeconds:Number):Void
 </pre>
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.loadVideoById({videoId:String,
@@ -296,14 +318,18 @@ The optional endSeconds parameter accepts a float/integer. If it is specified, t
 video will stop playing at the specified time.
 cueVideoByUrl
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.cueVideoByUrl(mediaContentUrl:String,
                      startSeconds:Number):Void
 </pre>
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.cueVideoByUrl({mediaContentUrl:String,
@@ -316,25 +342,31 @@ video. The player does not request the FLV until playVideo() or seekTo() is call
 
 The required mediaContentUrl parameter specifies a fully qualified YouTube player URL in 
 the format http://www.youtube.com/v/VIDEO_ID?version=3.
+
 The optional startSeconds parameter accepts a float/integer and specifies the time from 
 which the video should start playing when playVideo() is called. If you specify 
 startSeconds and then call seekTo(), then the player plays from the time specified in the 
 seekTo() call. When the video is cued and ready to play, the player will broadcast a 
 video cued event (5).
+
 The optional endSeconds parameter, which is only supported in object syntax, accepts a 
 float/integer and specifies the time when the video should stop playing when playVideo() 
 is called. If you specify an endSeconds value and then call seekTo(), the endSeconds 
 value will no longer be in effect.
 loadVideoByUrl
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.loadVideoByUrl(mediaContentUrl:String,
                       startSeconds:Number):Void
 </pre>
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.loadVideoByUrl({mediaContentUrl:String,
@@ -346,12 +378,16 @@ This function loads and plays the specified video.
 
 The required mediaContentUrl parameter specifies a fully qualified YouTube player URL in 
 the format http://www.youtube.com/v/VIDEO_ID?version=3.
+
 The optional startSeconds parameter accepts a float/integer and specifies the time from 
 which the video should start playing. If startSeconds (number can be a float) is 
 specified, the video will start from the closest keyframe to the specified time.
 The optional endSeconds parameter, which is only supported in object syntax, accepts a 
 float/integer and specifies the time when the video should stop playing.
+
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Queueing functions for lists
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 The cuePlaylist and loadPlaylist functions allow you to load and play a playlist. If you 
 are using object syntax to call these functions, you can also queue (or load) a list of 
 a user's uploaded videos.
@@ -363,7 +399,9 @@ argument syntax or the object syntax, both calling methods are documented below.
 cuePlaylist
 </pre>
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Argument syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.cuePlaylist(playlist:String|Array,
@@ -373,6 +411,7 @@ player.cuePlaylist(playlist:String|Array,
 
 Queues the specified playlist. When the playlist is cued and ready to play, the player 
 will broadcast a video cued event (5).
+
 The required playlist parameter specifies an array of YouTube video IDs. In the YouTube 
 Data API, the video resource's id property identifies that video's ID.
 
@@ -387,7 +426,9 @@ plays from the time specified in the seekTo() call. If you cue a playlist and th
 the playVideoAt() function, the player will start playing at the beginning of the 
 specified video.
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Object syntax
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <pre>
 player.cuePlaylist({listType:String,
@@ -411,11 +452,14 @@ that YouTube should return.
 If the listType property value is playlist, then the list property specifies the playlist 
 ID or an array of video IDs. In the YouTube Data API, the playlist resource's id property 
 identifies a playlist's ID, and the video resource's id property specifies a video ID.
+
 If the listType property value is user_uploads, then the list property identifies the user 
 whose uploaded videos will be returned.
+
 If the listType property value is search, then the list property specifies the search 
 query. Note: This functionality is deprecated and will no longer be supported as of 
 15 November 2020.
+
 The optional index property specifies the index of the first video in the list that 
 will play. The parameter uses a zero-based index, and the default parameter value is 
 0, so the default behavior is to load and play the first video in the list.
@@ -430,14 +474,17 @@ specified video.
 <pre>
 loadPlaylist
 </pre>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Argument syntax
-
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>
 player.loadPlaylist(playlist:String|Array,
                     index:Number,
                     startSeconds:Number):Void
 </pre>
+
 This function loads the specified playlist and plays it.
+
 The required playlist parameter specifies an array of YouTube video IDs. In the YouTube 
 Data API, the video resource's id property specifies a video ID.
 
@@ -448,8 +495,9 @@ so the default behavior is to load and play the first video in the playlist.
 The optional startSeconds parameter accepts a float/integer and specifies the time from 
 which the first video in the playlist should start playing.
 
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 Object syntax
-
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>
 player.loadPlaylist({list:String,
                      listType:String,
@@ -460,6 +508,7 @@ player.loadPlaylist({list:String,
 This function loads the specified list and plays it. The list can be a playlist or a user's 
 uploaded videos feed. The ability to load a list of search results is deprecated and will 
 no longer be supported as of 15 November 2020.
+
 The optional listType property specifies the type of results feed that you are retrieving. 
 Valid values are playlist and user_uploads. A deprecated value, search, will no longer be 
 supported as of 15 November 2020. The default value is playlist.
@@ -470,10 +519,13 @@ that YouTube should return.
 If the listType property value is playlist, then the list property specifies a playlist 
 ID or an array of video IDs. In the YouTube Data API, the playlist resource's id property 
 specifies a playlist's ID, and the video resource's id property specifies a video ID.
+
 If the listType property value is user_uploads, then the list property identifies the user 
 whose uploaded videos will be returned.
+
 If the listType property value is search, then the list property specifies the search query. 
 Note: This functionality is deprecated and will no longer be supported as of 15 November 2020.
+
 The optional index property specifies the index of the first video in the list that will 
 play. The parameter uses a zero-based index, and the default parameter value is 0, so the 
 default behavior is to load and play the first video in the list.
@@ -481,23 +533,23 @@ default behavior is to load and play the first video in the list.
 The optional startSeconds property accepts a float/integer and specifies the time from 
 which the first video in the list should start playing.
 
-Playback controls and player settings
-
-## Playing a video
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h2>Playback controls and player settings</h2>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h2>Playing a video</h2>
 <pre>player.playVideo():Void</pre>
-
 Plays the currently cued/loaded video. The final player state after this function 
 executes will be playing (1).
 
 Note: A playback only counts toward a video's official view count if it is initiated via 
 a native play button in the player.
-<pre>player.pauseVideo():Void</pre>
 
+<pre>player.pauseVideo():Void</pre>
 Pauses the currently playing video. The final player state after this function executes 
 will be paused (2) unless the player is in the ended (0) state when the function is 
 called, in which case the player state will not change.
-<pre>player.stopVideo():Void</pre>
 
+<pre>player.stopVideo():Void</pre>
 Stops and cancels loading of the current video. This function should be reserved for rare 
 situations when you know that the user will not be watching additional video in the 
 player. If your intent is to pause the video, you should just call the pauseVideo 
@@ -507,10 +559,12 @@ the queueing functions without calling stopVideo first.
 Important: Unlike the pauseVideo function, which leaves the player in the paused (2) 
 state, the stopVideo function could put the player into any not-playing state, including 
 ended (0), paused (2), video cued (5) or unstarted (-1).
-player.seekTo(seconds:Number, allowSeekAhead:Boolean):Void
+
+<pre>player.seekTo(seconds:Number, allowSeekAhead:Boolean):Void</pre>
 Seeks to a specified time in the video. If the player is paused when the function is 
 called, it will remain paused. If the function is called from another state (playing, 
 video cued, etc.), the player will play the video.
+
 The seconds parameter identifies the time to which the player should advance.
 
 The player will advance to the closest keyframe before that time unless the player has 
@@ -536,12 +590,15 @@ responding to touch/drag actions on the device's screen.
 <pre>player.getSphericalProperties():Object</pre>
 Retrieves properties that describe the viewer's current perspective, or view, for a 
 video playback. In addition:
+
 This object is only populated for 360° videos, which are also called spherical videos.
 If the current video is not a 360° video or if the function is called from a 
 non-supported device, then the function returns an empty object.
+
 On supported mobile devices, if the enableOrientationSensor property is set to true, then 
 this function returns an object in which the fov property contains the correct value and 
 the other properties are set to 0.
+
 The object contains the following properties:
 
 ### Properties
@@ -566,6 +623,7 @@ the view. The roll can be adjusted in either of these mutually exclusive ways:
 Use the orientation sensor in a mobile browser to provide roll for the view. If the 
 orientation sensor is enabled, then the getSphericalProperties function always returns 0 
 as the value of the roll property.
+
 If the orientation sensor is disabled, set the roll to a nonzero value using this API.
 fov	A number in the range [30, 120] that represents the field-of-view of the view in 
 degrees as measured along the longer edge of the viewport. The shorter edge is automatically 
@@ -574,7 +632,8 @@ adjusted to be proportional to the aspect ratio of the view.
 The default value is 100 degrees. Decreasing the value is like zooming in on the video 
 content, and increasing the value is like zooming out. This value can be adjusted either 
 by using the API or by using the mousewheel when the video is in fullscreen mode.
-player.setSphericalProperties(properties:Object):Void
+
+<pre>player.setSphericalProperties(properties:Object):Void</pre>
 Sets the video orientation for playback of a 360° video. (If the current video is not 
 spherical, the method is a no-op regardless of the input.)
 
@@ -586,9 +645,11 @@ known properties not included in that object.
 If the object contains unknown and/or unexpected properties, the player ignores them.
 As noted at the beginning of this section, the 360° video playback experience is not 
 supported on all mobile devices.
+
 By default, on supported mobile devices, this function sets only sets the fov property 
 and does not affect the yaw, pitch, and roll properties for 360° video playbacks. See 
 the enableOrientationSensor property below for more detail.
+
 The properties object passed to the function contains the following properties:
 
 ### Properties
@@ -609,6 +670,7 @@ When the value is true, an embedded player relies only on the device's movement 
 the yaw, pitch, and roll properties for 360° video playbacks. However, the fov property 
 can still be changed via the API, and the API is, in fact, the only way to change the fov 
 property on a mobile device. This is the default behavior.
+
 When the value is false, then the device's movement does not affect the 360° viewing 
 experience, and the yaw, pitch, roll, and fov properties must all be set via the API.
 
@@ -616,8 +678,8 @@ experience, and the yaw, pitch, roll, and fov properties must all be set via the
 The enableOrientationSensor property value does not have any effect on the playback experience.
 
 ### Playing a video in a playlist
-<pre>player.nextVideo():Void</pre>
 
+<pre>player.nextVideo():Void</pre>
 This function loads and plays the next video in the playlist.
 If player.nextVideo() is called while the last video in the playlist is being watched, and 
 the playlist is set to play continuously (loop), then the player will load and play the 
@@ -627,7 +689,6 @@ If player.nextVideo() is called while the last video in the playlist is being wa
 the playlist is not set to play continuously, then playback will end.
 
 <pre>player.previousVideo():Void</pre>
-
 This function loads and plays the previous video in the playlist.
 If player.previousVideo() is called while the first video in the playlist is being 
 watched, and the playlist is set to play continuously (loop), then the player will 
@@ -638,7 +699,6 @@ watched, and the playlist is not set to play continuously, then the player will
 restart the first playlist video from the beginning.
 
 <pre>player.playVideoAt(index:Number):Void</pre>
-
 This function loads and plays the specified video in the playlist.
 The required index parameter specifies the index of the video that you want to play in 
 the playlist. The parameter uses a zero-based index, so a value of 0 identifies the 
@@ -666,16 +726,15 @@ will return the volume even if the player is muted.
 <h3>Setting the player size</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.setSize(width:Number, height:Number):Object</pre>
-
 Sets the size in pixels of the &lt;iframe&gt; that contains the player.
 Setting the playback rate
-<pre>player.getPlaybackRate():Number</pre>
 
+<pre>player.getPlaybackRate():Number</pre>
 This function retrieves the playback rate of the currently playing video. The default 
 playback rate is 1, which indicates that the video is playing at normal speed. Playback 
 rates may include values like 0.25, 0.5, 1, 1.5, and 2.
-<pre>player.setPlaybackRate(suggestedRate:Number):Void</pre>
 
+<pre>player.setPlaybackRate(suggestedRate:Number):Void</pre>
 This function sets the suggested playback rate for the current video. If the playback 
 rate changes, it will only change for the video that is already cued or being played. 
 If you set the playback rate for a cued video, that rate will still be in effect when 
@@ -692,15 +751,18 @@ The getAvailablePlaybackRates method will return the possible playback rates for
 currently playing video. However, if you set the suggestedRate parameter to a 
 non-supported integer or float value, the player will round that value down to the 
 nearest supported value in the direction of 1.
-player.getAvailablePlaybackRates():Array
+
+<pre>player.getAvailablePlaybackRates():Array</pre>
 This function returns the set of playback rates in which the current video is available. 
 The default value is 1, which indicates that the video is playing in normal speed.
 
 The function returns an array of numbers ordered from slowest to fastest playback speed. 
 Even if the player does not support variable playback speeds, the array should always 
 contain at least one value (1).
-Setting playback behavior for playlists
-player.setLoop(loopPlaylists:Boolean):Void
+
+### Setting playback behavior for playlists
+
+<pre>player.setLoop(loopPlaylists:Boolean):Void</pre>
 This function indicates whether the video player should continuously play a playlist 
 or if it should stop playing after the last video in the playlist ends. The default 
 behavior is that playlists do not loop.
@@ -718,7 +780,7 @@ beginning of the playlist and play it again.
 If the parameter value is false, then playbacks will end after the video player plays 
 the last video in a playlist.
 
-player.setShuffle(shufflePlaylist:Boolean):Void
+<pre>player.setShuffle(shufflePlaylist:Boolean):Void</pre>
 This function indicates whether a playlist's videos should be shuffled so that they play 
 back in an order different from the one that the playlist creator designated. If you 
 shuffle a playlist after it has already started playing, the list will be reordered 
@@ -739,36 +801,41 @@ will shuffle the order again.
 If the parameter value is false, then YouTube will change the playlist order back to 
 its original order.
 
-Playback status
-player.getVideoLoadedFraction():Float
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h3>Playback status</h3>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<pre>player.getVideoLoadedFraction():Float</pre>
 Returns a number between 0 and 1 that specifies the percentage of the video that the 
 player shows as buffered. This method returns a more reliable number than the 
 now-deprecated getVideoBytesLoaded and getVideoBytesTotal methods.
-player.getPlayerState():Number
+
+<pre>player.getPlayerState():Number</pre>
 Returns the state of the player. Possible values are:
--1 – unstarted
-0 – ended
-1 – playing
-2 – paused
-3 – buffering
-5 – video cued
-player.getCurrentTime():Number
+	-1 – unstarted
+	0 – ended
+	1 – playing
+	2 – paused
+	3 – buffering
+	5 – video cued
+
+<pre>player.getCurrentTime():Number</pre>
 Returns the elapsed time in seconds since the video started playing.
-player.getVideoStartBytes():Number
+
+<pre>player.getVideoStartBytes():Number</pre>
 Deprecated as of October 31, 2012. Returns the number of bytes the video file started 
 loading from. (This method now always returns a value of 0.) Example scenario: the user 
 seeks ahead to a point that hasn't loaded yet, and the player makes a new request to 
 play a segment of the video that hasn't loaded yet.
-player.getVideoBytesLoaded():Number
-Deprecated as of July 18, 2012. Instead, use the getVideoLoadedFraction method to 
-determine the percentage of the video that has buffered.
+
+<pre>player.getVideoLoadFraction</pre>
+Determines the percentage of the video that has buffered.
 
 This method returns a value between 0 and 1000 that approximates the amount of the 
 video that has been loaded. You could calculate the fraction of the video that has 
 been loaded by dividing the getVideoBytesLoaded value by the getVideoBytesTotal value.
-player.getVideoBytesTotal():Number
-Deprecated as of July 18, 2012. Instead, use the getVideoLoadedFraction method to 
-determine the percentage of the video that has buffered.
+
+<pre>player.getVideoLoadFraction</pre>
+Determine the percentage of the video that has buffered.
 
 Returns the size in bytes of the currently loaded/playing video or an approximation 
 of the video's size.
@@ -777,7 +844,9 @@ This method always returns a value of 1000. You could calculate the fraction of 
 video that has been loaded by dividing the getVideoBytesLoaded value by the 
 getVideoBytesTotal value.
 
-Retrieving video information
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h3>Retrieving video information</h3>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getDuration():Number</pre>
 Returns the duration in seconds of the currently playing video. Note that getDuration() 
 will return 0 until the video's metadata is loaded, which normally happens just after 
@@ -795,8 +864,9 @@ Returns the YouTube.com URL for the currently loaded/playing video.
 <pre>player.getVideoEmbedCode():String</pre>
 Returns the embed code for the currently loaded/playing video.
 
-Retrieving playlist information
-
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h3>Retrieving playlist information</h3>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getPlaylist():Array</pre>
 This function returns an array of the video IDs in the playlist as they are currently 
 ordered. By default, this function will return video IDs in the order designated by 
@@ -813,8 +883,9 @@ so a value of 0 identifies the first video in the playlist.
 If you have shuffled the playlist, the return value will identify the video's order 
 within the shuffled playlist.
 
-Adding or removing an event listener
-
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h4>Adding or removing an event listener</h4>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.addEventListener(event:String, listener:String):Void</pre>
 Adds a listener function for the specified event. The Events section below identifies the 
 different events that the player might fire. The listener is a string that specifies the 
@@ -831,7 +902,7 @@ This method returns the DOM node for the embedded &lt;iframe&gt;.
 <pre>player.destroy():Void</pre>
 Removes the &lt;iframe&gt; containing the player.
 
-Events
+<h4>Events</h4>
 The API fires events to notify your application of changes to the embedded player. As 
 noted in the previous section, you can subscribe to events by adding an event listener 
 when constructing the YT.Player object, and you can also use the addEventListener 
@@ -845,7 +916,9 @@ The event's data specifies a value relevant to the event. Note that the onReady 
 onAutoplayBlocked events do not specify a data property.
 The following list defines the events that the API fires:
 
-onReady
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h4>onReady</h4>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 This event fires whenever a player has finished loading and is ready to begin receiving 
 API calls. Your application should implement this function if you want to automatically 
 execute certain operations, such as playing the video or displaying information about 
@@ -853,6 +926,7 @@ the video, as soon as the player is ready.
 
 The example below shows a sample function for handling this event. The event object 
 that the API passes to the function has a target property, which identifies the player. 
+
 The function retrieves the embed code for the currently loaded video, starts to play 
 the video, and displays the embed code in the page element that has an id value of 
 embed-code.
@@ -866,39 +940,42 @@ function onPlayerReady(event) {
 }
 </pre>
 
-onStateChange
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h4>onStateChange</h4>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 This event fires whenever the player's state changes. The data property of the event 
 object that the API passes to your event listener function will specify an integer 
 that corresponds to the new player state. Possible values are:
--1 (unstarted)
-0 (ended)
-1 (playing)
-2 (paused)
-3 (buffering)
-5 (video cued).
+	-1 (unstarted)
+	0 (ended)
+	1 (playing)
+	2 (paused)
+	3 (buffering)
+	5 (video cued).
 
 When the player first loads a video, it will broadcast an unstarted (-1) event. When a 
 video is cued and ready to play, the player will broadcast a video cued (5) event. In 
 your code, you can specify the integer values or you can use one of the following 
 namespaced variables:
-YT.PlayerState.ENDED
-YT.PlayerState.PLAYING
-YT.PlayerState.PAUSED
-YT.PlayerState.BUFFERING
-YT.PlayerState.CUED
-onPlaybackQualityChange
+	YT.PlayerState.ENDED
+	YT.PlayerState.PLAYING
+	YT.PlayerState.PAUSED
+	YT.PlayerState.BUFFERING
+	YT.PlayerState.CUED
+	onPlaybackQualityChange
+
 This event fires whenever the video playback quality changes. It might signal a change 
-in the viewer's playback environment. See the YouTube Help Center for more information 
+in the viewer's playback environment. See the <a href="">YouTube Help Center</a> for more information 
 about factors that affect playback conditions or that might cause the event to fire.
 
 The data property value of the event object that the API passes to the event listener 
 function will be a string that identifies the new playback quality. Possible values are:
-small
-medium
-large
-hd720
-hd1080
-highres
+	small
+	medium
+	large
+	hd720
+	hd1080
+	highres
 
 onPlaybackRateChange
 This event fires whenever the video playback rate changes. For example, if you call the 
