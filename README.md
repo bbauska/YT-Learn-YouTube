@@ -42,21 +42,21 @@ in the list below the example.
   <summary>YouTube on the Web</summary>
 
 <pre>
-<!DOCTYPE html>
-<html>
-  <body>
-    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
-    <div id="player"></div>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;!-- 1. The <iframe> (and video player) will replace this <div> tag. --&gt;
+    &lt;div id="player"&gt;&lt;/div&gt;
 
-    <script>
+    &lt;script&gt;
       // 2. This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
 
       tag.src = "https://www.youtube.com/iframe_api";
-      var firstScriptTag = document.getElementsByTagName('script')[0];
+      var firstScriptTag = document.getElementsByTagName('script')&lbrack;0&rbrack;;
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      // 3. This function creates an <iframe> (and YouTube player)
+      // 3. This function creates an &lt;iframe&gt; (and YouTube player)
       //    after the API code downloads.
       var player;
       function onYouTubeIframeAPIReady() {
@@ -92,9 +92,9 @@ in the list below the example.
       function stopVideo() {
         player.stopVideo();
       }
-    </script>
-  </body>
-</html>
+    &lt;/script&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
 </pre>
 
 </details>
