@@ -671,7 +671,6 @@ experience, and the yaw, pitch, roll, and fov properties must all be set via the
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h3>Playing a video in a playlist</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.nextVideo():Void</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>This function loads and plays the next video in the playlist.</p>
@@ -777,19 +776,18 @@ contain at least one value (1).</p>
 or if it should stop playing after the last video in the playlist ends. The default 
 behavior is that playlists do not loop.</p>
 
-This setting will persist even if you load or cue a different playlist, which means 
+<p>This setting will persist even if you load or cue a different playlist, which means 
 that if you load a playlist, call the setLoop function with a value of true, and then 
-load a second playlist, the second playlist will also loop.
+load a second playlist, the second playlist will also loop.</p>
 
-The required loopPlaylists parameter identifies the looping behavior.
+<p>The required loopPlaylists parameter identifies the looping behavior.</p>
 
-If the parameter value is true, then the video player will continuously play playlists. 
+<p>If the parameter value is true, then the video player will continuously play playlists. 
 After playing the last video in a playlist, the video player will go back to the 
-beginning of the playlist and play it again.
+beginning of the playlist and play it again.</p>
 
-If the parameter value is false, then playbacks will end after the video player plays 
-the last video in a playlist.
-
+<p>If the parameter value is false, then playbacks will end after the video player plays 
+the last video in a playlist.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.setShuffle(shufflePlaylist:Boolean):Void</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1001,13 +999,14 @@ about factors that affect playback conditions or that might cause the event to f
 <p>The data property value of the event object that the API passes to the event listener 
 function will be a string that identifies the new playback quality. Possible values are:</p>
 
-	small
-	medium
-	large
-	hd720
-	hd1080
-	highres
-
+<ul>
+  <li><b>small</b></li>
+  <li><b>medium</b></li>
+  <li><b>large</b></li>
+  <li><b>hd720</b></li>
+  <li><b>hd1080</b></li>
+  <li><b>highres</b></li>
+</ul>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>onPlaybackRateChange</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1025,56 +1024,62 @@ currently cued or playing video.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>onError</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-This event fires if an error occurs in the player. The API will pass an event object to 
+<p>This event fires if an error occurs in the player. The API will pass an event object to 
 the event listener function. That object's data property will specify an integer that 
-identifies the type of error that occurred. Possible values are:
-
-	2 – The request contains an invalid parameter value. For example, this error occurs if 
-you specify a video ID that does not have 11 characters, or if the video ID contains 
-invalid characters, such as exclamation points or asterisks.
-	5 – The requested content cannot be played in an HTML5 player or another error related 
-to the HTML5 player has occurred.
-	100 – The video requested was not found. This error occurs when a video has been removed 
-(for any reason) or has been marked as private.
-	101 – The owner of the requested video does not allow it to be played in embedded 
-players.
-	150 – This error is the same as 101. It's just a 101 error in disguise!
-onApiChange
-
-This event is fired to indicate that the player has loaded (or unloaded) a module with 
+identifies the type of error that occurred. Possible values are:</p>
+<ul>
+  <li><b>2</b> – The request contains an invalid parameter value. For example, this error occurs 
+    if you specify a video ID that does not have 11 characters, or if the video ID contains 
+	invalid characters, such as exclamation points or asterisks.</li>
+  <li><b>5 – The requested content cannot be played in an HTML5 player or another error related 
+    to the HTML5 player has occurred.</li>
+  <li><b>100 – The video requested was not found. This error occurs when a video has been removed 
+    (for any reason) or has been marked as private.</li>
+  <li><b>101 – The owner of the requested video does not allow it to be played in embedded 
+    players.</li>
+  <li><b>150 – This error is the same as 101. It's just a 101 error in disguise!</li>
+</ul>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<pre>onApiChange</pre>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<p>This event is fired to indicate that the player has loaded (or unloaded) a module with 
 exposed API methods. Your application can listen for this event and then poll the player 
 to determine which options are exposed for the recently loaded module. Your application 
-can then retrieve or update the existing settings for those options.
+can then retrieve or update the existing settings for those options.</p>
 
-The following command retrieves an array of module names for which you can set player 
-options:
-
+<p>The following command retrieves an array of module names for which you can set player 
+options:</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getOptions();</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-Currently, the only module that you can set options for is the captions module, which 
+<p>Currently, the only module that you can set options for is the captions module, which 
 handles closed captioning in the player. Upon receiving an onApiChange event, your 
 application can use the following command to determine which options can be set for the 
-captions module:
-
+captions module:</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getOptions('captions');</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-By polling the player with this command, you can confirm that the options you want to 
-access are, indeed, accessible. The following commands retrieve and update module options:
+<p>By polling the player with this command, you can confirm that the options you want to 
+access are, indeed, accessible. The following commands retrieve and update module options:</p>
 
-Retrieving an option:
+<p>Retrieving an option:</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getOption(module, option);</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-Setting an option
+<p>Setting an option</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.setOption(module, option, value);</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-The table below lists the options that the API supports:
+<p>The table below lists the options that the API supports:</p>
 
-Module	Option	Description
-captions	fontSize	This option adjusts the font size of the captions displayed in the player.
+<dl>
+  <dt>Module</dt>
+  <dd>captions</dd>
+  <dt>Option</dt>
+  <dd>fontSize</dd>
+  <dt>Description</dt>
+  <dd>This option adjusts the font size of the captions displayed in the player.</dd>
+</dl>
 
 <p>Valid values are -1, 0, 1, 2, and 3. The default size is 0, and the smallest size is -1. 
 Setting this option to an integer below -1 will cause the smallest caption size to display, 
@@ -1124,13 +1129,16 @@ the player is playing, red when paused, blue when buffering, and so forth.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>This example uses the following code:</pre>
 
+<details>
+  <summary>Controlling 360° videos</summary>
+
 <pre>
 &lt;iframe id="existing-iframe-example"
         width="640" height="360"
         src="https://www.youtube.com/embed/M7lc1UVf-VE?enablejsapi=1"
         frameborder="0"
         style="border: solid 4px #37474F"&gt;
-</iframe&gt;
+&lt;/iframe&gt;
 
 &lt;script type="text/javascript"&gt;
   var tag = document.createElement('script');
@@ -1175,11 +1183,15 @@ the player is playing, red when paused, blue when buffering, and so forth.</p>
   }
 &lt;/script&gt;
 </pre>
+</details>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>Example 2: Loud playback</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>This example creates a 1280px by 720px video player. The event listener for the onReady 
 event then calls the setVolume function to adjust the volume to the highest setting.</p>
+
+<details>
+  <summary>Controlling 360° videos</summary>
 
 <pre>
 function onYouTubeIframeAPIReady() {
@@ -1201,6 +1213,8 @@ function onPlayerReady(event) {
   event.target.playVideo();
 }
 </pre>
+
+</details>
 
 <p><b>Example 3</b>: This example sets player parameters to automatically play the video when it 
 loads and to hide the video player's controls. It also adds event listeners for several 
@@ -1229,7 +1243,7 @@ function onYouTubeIframeAPIReady() {
 
 <details>
   <summary>Controlling 360° videos</summary>
-  
+
 <pre>
 &lt;style&gt;
   .current-values {
