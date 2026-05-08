@@ -1343,7 +1343,7 @@ function onYouTubeIframeAPIReady() {
   }
 &lt;/script&gt;
 </pre>
-</detail>
+</details>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>Android WebView Media Integrity API integration</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
