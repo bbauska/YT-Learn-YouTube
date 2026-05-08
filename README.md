@@ -433,7 +433,7 @@ that YouTube should return.</p>
 <b>playlist ID</b> or an array of video IDs. In the YouTube <b>Data API</b>, the playlist resource's id property 
 identifies a playlist's ID, and the video resource's id property specifies a video ID.
 
-<b>If the <b>listType</b> property value is <b>user_uploads</b>, then the list property identifies the user 
+<p>If the <b>listType</b> property value is <b>user_uploads</b>, then the list property identifies the user 
 whose uploaded videos will be returned.</p>
 
 <p>If the <b>listType</b> property value is search, then the list property specifies the search 
@@ -667,7 +667,8 @@ experience, and the yaw, pitch, roll, and fov properties must all be set via the
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>Unsupported mobile devices</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>The <mark>enableOrientationSensor</mark> property value does not have any effect on the playback experience.</p>
+<p>The <mark>enableOrientationSensor</mark> property value does not have any effect on the playback 
+experience.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h3>Playing a video in a playlist</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -675,12 +676,12 @@ experience, and the yaw, pitch, roll, and fov properties must all be set via the
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>This function loads and plays the next video in the playlist.</p>
 
-<p>If <mark>player.nextVideo()</mark> is called while the last video in the playlist is being watched, and 
-the playlist is set to play continuously (loop), then the player will load and play the 
-first video in the list.</p>
+<p>If <mark>player.nextVideo()</mark> is called while the last video in the playlist is being watched, 
+and the playlist is set to play continuously (loop), then the player will load and play the first 
+video in the list.</p>
 
-<p>If <mark>player.nextVideo()</mark> is called while the last video in the playlist is being watched, and 
-the playlist is not set to play continuously, then playback will end.</p>
+<p>If <mark>player.nextVideo()</mark> is called while the last video in the playlist is being watched, 
+and the playlist is not set to play continuously, then playback will end.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.previousVideo():Void</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -698,10 +699,10 @@ restart the first playlist video from the beginning.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>This function loads and plays the specified video in the playlist.</p>
 
-<p>The required index parameter specifies the index of the video that you want to play in 
-the playlist. The parameter uses a zero-based index, so a value of 0 identifies the 
-first video in the list. If you have shuffled the playlist, this function will play the 
-video at the specified position in the shuffled playlist.</p>
+<p>The required index parameter specifies the index of the video that you want to play in the 
+playlist. The parameter uses a zero-based index, so a value of 0 identifies the first video in the 
+list. If you have shuffled the playlist, this function will play the video at the specified 
+position in the shuffled playlist.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.mute():Void</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -736,88 +737,83 @@ will return the volume even if the player is muted.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getPlaybackRate():Number</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>This function retrieves the playback rate of the currently playing video. The default 
-playback rate is 1, which indicates that the video is playing at normal speed. Playback 
-rates may include values like 0.25, 0.5, 1, 1.5, and 2.</p>
+<p>This function retrieves the playback rate of the currently playing video. The default playback 
+rate is 1, which indicates that the video is playing at normal speed. Playback rates may include 
+values like 0.25, 0.5, 1, 1.5, and 2.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.setPlaybackRate(suggestedRate:Number):Void</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>This function sets the suggested playback rate for the current video. If the playback 
-rate changes, it will only change for the video that is already cued or being played. 
-If you set the playback rate for a cued video, that rate will still be in effect when 
-the playVideo function is called or the user initiates playback directly through the 
-player controls. In addition, calling functions to cue or load videos or playlists 
-(cueVideoById, loadVideoById, etc.) will reset the playback rate to 1.</p>
+<p>This function sets the suggested playback rate for the current video. If the playback rate 
+changes, it will only change for the video that is already cued or being played. If you set the 
+playback rate for a cued video, that rate will still be in effect when the playVideo function is 
+called or the user initiates playback directly through the player controls. In addition, calling 
+functions to cue or load videos or playlists (cueVideoById, loadVideoById, etc.) will reset the 
+playback rate to 1.</p>
 
-<p>Calling this function does not guarantee that the playback rate will actually change. 
-However, if the playback rate does change, the onPlaybackRateChange event will fire, 
-and your code should respond to the event rather than the fact that it called the 
-setPlaybackRate function.</p>
+<p>Calling this function does not guarantee that the playback rate will actually change. However, 
+if the playback rate does change, the onPlaybackRateChange event will fire, and your code should 
+respond to the event rather than the fact that it called the setPlaybackRate function.</p>
 
-<p>The getAvailablePlaybackRates method will return the possible playback rates for the 
-currently playing video. However, if you set the suggestedRate parameter to a 
-non-supported integer or float value, the player will round that value down to the 
-nearest supported value in the direction of 1.</p>
+<p>The getAvailablePlaybackRates method will return the possible playback rates for the currently 
+playing video. However, if you set the suggestedRate parameter to a non-supported integer or float 
+value, the player will round that value down to the nearest supported value in the direction of 1.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getAvailablePlaybackRates():Array</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>This function returns the set of playback rates in which the current video is available. 
-The default value is 1, which indicates that the video is playing in normal speed.</p>
+<p>This function returns the set of playback rates in which the current video is available. The 
+default value is 1, which indicates that the video is playing in normal speed.</p>
 
-<p>The function returns an array of numbers ordered from slowest to fastest playback speed. 
-Even if the player does not support variable playback speeds, the array should always 
-contain at least one value (1).</p>
+<p>The function returns an array of numbers ordered from slowest to fastest playback speed. Even 
+if the player does not support variable playback speeds, the array should always contain at least 
+one value (1).</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h3>Setting playback behavior for playlists</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.setLoop(loopPlaylists:Boolean):Void</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>This function indicates whether the video player should continuously play a playlist 
-or if it should stop playing after the last video in the playlist ends. The default 
-behavior is that playlists do not loop.</p>
+<p>This function indicates whether the video player should continuously play a playlist or if it 
+should stop playing after the last video in the playlist ends. The default behavior is that 
+playlists do not loop.</p>
 
-<p>This setting will persist even if you load or cue a different playlist, which means 
-that if you load a playlist, call the setLoop function with a value of true, and then 
-load a second playlist, the second playlist will also loop.</p>
+<p>This setting will persist even if you load or cue a different playlist, which means that if you 
+load a playlist, call the setLoop function with a value of true, and then load a second playlist, 
+the second playlist will also loop.</p>
 
 <p>The required loopPlaylists parameter identifies the looping behavior.</p>
 
-<p>If the parameter value is true, then the video player will continuously play playlists. 
-After playing the last video in a playlist, the video player will go back to the 
-beginning of the playlist and play it again.</p>
+<p>If the parameter value is true, then the video player will continuously play playlists. After 
+playing the last video in a playlist, the video player will go back to the beginning of the playlist 
+and play it again.</p>
 
-<p>If the parameter value is false, then playbacks will end after the video player plays 
-the last video in a playlist.</p>
+<p>If the parameter value is false, then playbacks will end after the video player plays the last 
+video in a playlist.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.setShuffle(shufflePlaylist:Boolean):Void</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>This function indicates whether a playlist's videos should be shuffled so that they play 
-back in an order different from the one that the playlist creator designated. If you 
-shuffle a playlist after it has already started playing, the list will be reordered 
-while the video that is playing continues to play. The next video that plays will 
-then be selected based on the reordered list.</p>
+<p>This function indicates whether a playlist's videos should be shuffled so that they play back 
+in an order different from the one that the playlist creator designated. If you shuffle a playlist 
+after it has already started playing, the list will be reordered while the video that is playing 
+continues to play. The next video that plays will then be selected based on the reordered list.</p>
 
-<p>This setting will not persist if you load or cue a different playlist, which means 
-that if you load a playlist, call the setShuffle function, and then load a second 
-playlist, the second playlist will not be shuffled.</p>
+<p>This setting will not persist if you load or cue a different playlist, which means that if you 
+load a playlist, call the setShuffle function, and then load a second playlist, the second playlist 
+will not be shuffled.</p>
 
-<p>The required shufflePlaylist parameter indicates whether YouTube should shuffle the 
-playlist.</p>
+<p>The required shufflePlaylist parameter indicates whether YouTube should shuffle the playlist.</p>
 
-<p>If the parameter value is true, then YouTube will shuffle the playlist order. If you 
-instruct the function to shuffle a playlist that has already been shuffled, YouTube 
-will shuffle the order again.</p>
+<p>If the parameter value is true, then YouTube will shuffle the playlist order. If you instruct 
+the function to shuffle a playlist that has already been shuffled, YouTube will shuffle the order 
+again.</p>
 
-<p>If the parameter value is false, then YouTube will change the playlist order back to 
-its original order.</p>
+<p>If the parameter value is false, then YouTube will change the playlist order back to its original 
+order.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h3>Playback status</h3>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getVideoLoadedFraction():Float</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>Returns a number between 0 and 1 that specifies the percentage of the video that the 
-player shows as buffered. This method returns a more reliable number than the 
-now-deprecated getVideoBytesLoaded and getVideoBytesTotal methods.</p>
+<p>Returns a number between 0 and 1 that specifies the percentage of the video that the player 
+shows as buffered.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getPlayerState():Number</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -955,6 +951,7 @@ that the API passes to the function has a target property, which identifies the 
 <p>The function retrieves the embed code for the currently loaded video, starts to play 
 the video, and displays the embed code in the page element that has an id value of 
 embed-code.</p>
+
 <pre>
 function onPlayerReady(event) {
   var embedCode = event.target.getVideoEmbedCode();
@@ -967,9 +964,10 @@ function onPlayerReady(event) {
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>onStateChange</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>This event fires whenever the player's state changes. The data property of the event 
-object that the API passes to your event listener function will specify an integer 
-that corresponds to the new player state. Possible values are:</p>
+<p>This event fires whenever the player's state changes. The data property of the event object that 
+the API passes to your event listener function will specify an integer that corresponds to the new 
+player state. Possible values are:</p>
+
 <ul>
   <li><b>-1 (unstarted)</b></li>
   <li><b>0 (ended)</b></li>
@@ -979,10 +977,10 @@ that corresponds to the new player state. Possible values are:</p>
   <li><b>5 (video cued).</b></li>
 </ul>
 
-<p>When the player first loads a video, it will broadcast an unstarted (-1) event. When a 
-video is cued and ready to play, the player will broadcast a video cued (5) event. In 
-your code, you can specify the integer values or you can use one of the following 
-namespaced variables:</p>
+<p>When the player first loads a video, it will broadcast an unstarted (-1) event. When a video is 
+cued and ready to play, the player will broadcast a video cued (5) event. In your code, you can 
+specify the integer values or you can use one of the following namespaced variables:</p>
+
 <ul>
   <li><b>YT.PlayerState.ENDED</b></li>
   <li><b>YT.PlayerState.PLAYING</b></li>
@@ -1011,33 +1009,33 @@ function will be a string that identifies the new playback quality. Possible val
 <pre>onPlaybackRateChange</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>This event fires whenever the video playback rate changes. For example, if you call the 
-setPlaybackRate(suggestedRate) function, this event will fire if the playback rate 
+<mark>setPlaybackRate(suggestedRate)</mark> function, this event will fire if the playback rate 
 actually changes. Your application should respond to the event and should not assume 
-that the playback rate will automatically change when the setPlaybackRate(suggestedRate) 
+that the playback rate will automatically change when the <mark>setPlaybackRate(suggestedRate)</mark> 
 function is called. Similarly, your code should not assume that the video playback rate 
-will only change as a result of an explicit call to setPlaybackRate.</p>
+will only change as a result of an explicit call to <mark>setPlaybackRate</mark>.</p>
 
-<p>The data property value of the event object that the API passes to the event listener 
-function will be a number that identifies the new playback rate. The 
-getAvailablePlaybackRates method returns a list of the valid playback rates for the 
-currently cued or playing video.</p>
+<p>The data property value of the event object that the API passes to the event listener function 
+will be a number that identifies the new playback rate. The <mark>getAvailablePlaybackRates</mark> 
+method returns a list of the valid playback rates for the currently cued or playing video.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>onError</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>This event fires if an error occurs in the player. The API will pass an event object to 
 the event listener function. That object's data property will specify an integer that 
 identifies the type of error that occurred. Possible values are:</p>
+
 <ul>
   <li><b>2</b> – The request contains an invalid parameter value. For example, this error occurs 
     if you specify a video ID that does not have 11 characters, or if the video ID contains 
 	invalid characters, such as exclamation points or asterisks.</li>
-  <li><b>5 – The requested content cannot be played in an HTML5 player or another error related 
+  <li><b>5</b> – The requested content cannot be played in an HTML5 player or another error related 
     to the HTML5 player has occurred.</li>
-  <li><b>100 – The video requested was not found. This error occurs when a video has been removed 
+  <li><b>100</b> – The video requested was not found. This error occurs when a video has been removed 
     (for any reason) or has been marked as private.</li>
-  <li><b>101 – The owner of the requested video does not allow it to be played in embedded 
+  <li><b>101</b> – The owner of the requested video does not allow it to be played in embedded 
     players.</li>
-  <li><b>150 – This error is the same as 101. It's just a 101 error in disguise!</li>
+  <li><b>150</b> – This error is the same as 101. It's just a 101 error in disguise!</li>
 </ul>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>onApiChange</pre>
@@ -1061,12 +1059,12 @@ captions module:</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <p>By polling the player with this command, you can confirm that the options you want to 
 access are, indeed, accessible. The following commands retrieve and update module options:</p>
-
-<p>Retrieving an option:</p>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<h4>Retrieving an option</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.getOption(module, option);</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>Setting an option</p>
+<h4>Setting an option</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>player.setOption(module, option, value);</pre>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
@@ -1116,13 +1114,14 @@ Chrome, Mozilla Firefox) and Mozilla's autoplay guide.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <h4>Example 1: Use API with existing &lt;iframe&gt;</h4>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
-<p>In this example, an <b>&lt;iframe&gt;</b> element on the page already defines the player with which the 
-API will be used. Note that either the player's src URL must set the <mark>enablejsapi</mark> parameter 
-to 1 or the <b>&lt;iframe&gt;</b> element's <mark>enablejsapi</mark> attribute must be set to true.</p>
+<p>In this example, an <b>&lt;iframe&gt;</b> element on the page already defines the player with 
+which the API will be used. Note that either the player's src URL must set the <mark>enablejsapi</mark> 
+parameter to 1 or the <b>&lt;iframe&gt;</b> element's <mark>enablejsapi</mark> attribute must be set 
+to true.</p>
 
-<p>The <mark>onPlayerReady</mark> function changes the color of the border around the player to orange when 
-the player is ready. The onPlayerStateChange function then changes the color of the border 
-around the player based on the current player status. For example, the color is green when 
+<p>The <mark>onPlayerReady</mark> function changes the color of the border around the player to 
+orange when the player is ready. The onPlayerStateChange function then changes the color of the 
+border around the player based on the current player status. For example, the color is green when 
 the player is playing, red when paused, blue when buffering, and so forth.</p>
 <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 <pre>&lt;!-- video here --&gt;</pre>
@@ -1362,6 +1361,7 @@ configuration supports an opt-out option.</p>
 
 <p>The <b>getSphericalProperties</b> function retrieves the current orientation for the video 
 playback. The orientation includes the following data:</p>
+
 <ul>
   <li><b>yaw</b> - represents the horizontal angle of the view in degrees, which reflects the 
 extent to which the user turns the view to face further left or right.</li>
@@ -1373,10 +1373,10 @@ degrees.</li>
 which the user zooms in or out on the video.</li>
 </ul>
 
-<p>The setSphericalProperties function modifies the view to match the submitted property 
-values. In addition to the orientation values described above, this function supports 
+<p>The <mark>setSphericalProperties</mark> function modifies the view to match the submitted 
+property values. In addition to the orientation values described above, this function supports 
 a Boolean field that indicates whether the IFrame embed should respond to 
-DeviceOrientationEvents on supported mobile devices.</p>
+<mark>DeviceOrientationEvents</mark> on supported mobile devices.</p>
 
 <p>This example demonstrates and lets you test these new features.</p>
 
@@ -1385,7 +1385,8 @@ removed and redirected to this document. The deprecation announcement for the Fl
 JavaScript players was made on January 27, 2015. If you haven't done so already, please 
 migrate your applications to use IFrame embeds and the IFrame Player API.</p>
 
-<p>The new removeEventListener function lets you remove a listener for a specified event.</p>
+<p>The new <mark>removeEventListener</mark> function lets you remove a listener for a specified 
+event.</p>
 
 <p>The API supports several new functions and one new event that can be used to control 
 the video playback speed:</p>
@@ -1424,7 +1425,11 @@ onYouTubeIframeAPIReady function will be called first.</p>
 
 <p>The code sample in the Getting started section has been updated to reflect that the 
 URL for the IFrame Player API code has changed to http://www.youtube.com/iframe_api.</p>
-
+<pre>
+var scriptUrl = 'https:\/\/www.youtube.com\/s\/player\/8fb635c2\/www-widgetapi.vflset\/www-widgetapi.js';try{var ttPolicy=window.trustedTypes.createPolicy("youtube-widget-api",{createScriptURL:function(x){return x}});scriptUrl=ttPolicy.createScriptURL(scriptUrl)}catch(e){}var YT;if(!window["YT"])YT={loading:0,loaded:0};var YTConfig;if(!window["YTConfig"])YTConfig={"host":"https://www.youtube.com"};
+if(!YT.loading){YT.loading=1;(function(){var l=[];YT.ready=function(f){if(YT.loaded)f();else l.push(f)};window.onYTReady=function(){YT.loaded=1;var i=0;for(;i<l.length;i++)try{l[i]()}catch(e){}};YT.setConfig=function(c){var k;for(k in c)if(c.hasOwnProperty(k))YTConfig[k]=c[k]};var a=document.createElement("script");a.type="text/javascript";a.id="www-widgetapi-script";a.src=scriptUrl;a.async=true;var c=document.currentScript;if(c){var n=c.nonce||c.getAttribute("nonce");if(n)a.setAttribute("nonce",
+n)}var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})()};
+</pre>
 <p>To ensure that this change does not affect existing implementations, the old URL 
 (http://www.youtube.com/player_api) will continue to work.</p>
 
